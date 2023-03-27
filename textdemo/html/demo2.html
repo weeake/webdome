@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <ul class="ul1">
+        <li>AA</li>
+        <li title="hello">BB</li>
+        <li class="box">DDDD</li>
+        <li title="hello">CCC</li>
+        <li title="eee">FFF</li>
+    </ul>
+    <ul class="ul2">
+        <li title="hello">aaaa</li>
+        <li class="box">bbbb</li>
+        <li title="hello">vvvv</li>
+        <li title="two">cccc</li>
+        <li>dddd</li>
+    </ul>
+</body>
+<script>
+    $('.ul1').append('<span>append</span>');
+    $('.ul1').prepend('<span>pend</span>');
+
+    $('.ul1 [title="hello"]').eq(0).before('<h5>222</h5>');
+    $('.ul1 [title="hello"]').eq(0).after('<h5>111</h5>');
+
+    $('<h1>123</h1>').replaceAll('.ul2 [title="hello"]:eq(1)');
+</script>
+
+</html>

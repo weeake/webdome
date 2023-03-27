@@ -1,0 +1,264 @@
+*body {
+    padding: 0;
+    margin: 0;
+    background-color: rgb(202, 202, 202);
+}
+
+h1 {
+    /* 行间居中 */
+    text-align: center;
+}
+
+.element {
+    /* 弹性布局 */
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* 自适应   父元素 */
+    height: auto;
+    overflow: hidden;
+    margin: 10px;
+}
+
+.element-left {
+    /* 相对定位 */
+    position: relative;
+    width: 20%;
+    height: 30%;
+    left: 3%;
+    background-color: #fff;
+}
+
+.element-left form .input-box {
+    width: 100%;
+    margin: 5px;
+    bottom: 10px;
+}
+
+.input-box p {
+    display: flex;
+    width: 70%;
+    height: 40px;
+    /* 边框 */
+    border: 1px solid #929292;
+}
+
+.input-box p i {
+    position: relative;
+    top: 20%;
+    left: 2%;
+    padding: 2px;
+    width: 1.4rem;
+    height: 1.4rem;
+    color: orangered;
+    /* 只显示右边框 */
+    border-right: 1px solid#929292;
+}
+
+.input-box p input {
+    position: relative;
+    width: 80%;
+    left: 2%;
+    /* 边框样式不显示 */
+    border: none;
+}
+
+form .button {
+    border: none;
+    width: 100%;
+    height: 50px;
+    background-color: orangered;
+    text-align: center;
+    color: #fff;
+    font-size: 1.0rem;
+}
+
+.element-right {
+    display: flex;
+    width: 40%;
+    height: 40%;
+    background-color: #fff;
+    /* 作为列垂直地显示  自上而下 */
+    flex-direction: column;
+}
+
+.teddy-text img {
+    text-align: center;
+    width: 15%;
+    border: 1px solid orangered;
+    /* 圆角边框 */
+    border-radius: 20%;
+}
+
+.element-right .teddy-text {
+    position: relative;
+    text-align: center;
+}
+
+.teddy-text p {
+    margin: 1px;
+    color: orangered;
+}
+
+.element-right .teddy-follow {
+    position: relative;
+    display: flex;
+    background-color: orangered;
+}
+
+.teddy-follow p {
+    width: 50%;
+    text-align: center;
+    color: #fff;
+    font-size: 1.0rem;
+}
+
+
+/* 选择 .teddy-follow p 兄弟元素和自己中的第一个 */
+
+.teddy-follow p:nth-child(1) {
+    border-right: 1px solid#fff;
+}
+
+.element .element-last {
+    margin: 0;
+    position: relative;
+    display: flex;
+    right: 40px;
+    width: 20%;
+    height: 40%;
+    background-color: orangered;
+    border: 1px solid #fff;
+    /* 溢出隐藏 */
+    overflow: hidden;
+}
+
+.element-last ul {
+    padding: 10px 10px 10px 10px;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.element-last ul li {
+    /* 去掉圆点 */
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 1%;
+    width: 100%;
+    height: auto;
+}
+
+.element-last ul li i {
+    position: relative;
+    left: 5%;
+    top: 50%;
+}
+
+
+/* 选择 .element-last ul li 兄弟元素和自己中的第几个 */
+
+.element-last ul li:nth-child(2) {
+    border-top: 1px solid #fff;
+}
+
+.element-last ul li:nth-child(3) {
+    border-top: 1px solid #fff;
+}
+
+.element-last ul li:nth-child(4) {
+    border-top: 1px solid #fff;
+}
+
+.element-last ul li a,
+i {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.4rem;
+}
+
+
+/* 选择 .element-last ul li a 兄弟元素和自己中的第二个 */
+
+.element-last ul li a:nth-child(2) {
+    flex-direction: row;
+}
+
+.element-last ul li a {
+    position: relative;
+    left: 10%;
+    width: auto;
+    display: flex;
+}
+
+.element-last ul li a i {
+    position: relative;
+    top: 20%;
+    left: 200%;
+    width: 25px;
+    height: 25px;
+    border-radius: 20%;
+    font-size: 1.0rem;
+    background-color: rgb(78, 78, 78);
+}
+
+
+/* 媒体查询 */
+
+@media (max-width: 640px) {
+    .element {
+        /* 块级显示 */
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+    .element .element-left {
+        position: relative;
+        left: 10%;
+        width: 80%;
+    }
+    .element-left .input-box {
+        position: relative;
+        /* 向 X Y 轴移动 */
+        transform: translate( 10%, 15%);
+        justify-content: center;
+    }
+    .element-left form .button {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        border: none;
+    }
+    .element .element-right {
+        position: relative;
+        padding-top: 1%;
+        left: 10%;
+        width: 80%;
+    }
+    .element .element-last {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        left: 10%;
+        width: 76%;
+        height: auto;
+        padding: 10PX;
+    }
+    .element-last ul {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        justify-content: center;
+    }
+    .element-last ul li:nth-child(1) {
+        position: relative;
+        /* left: -15%; */
+        height: 100%;
+        width: 100%;
+        padding: 5px 0 5px 0;
+        background-color: brown;
+    }
+}

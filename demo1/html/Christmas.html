@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>圣诞节</title>
+	<link rel="stylesheet" type="text/css" href="../css/Christmas.css">
+</head>
+
+<body>
+	<script>
+	function snow() {
+		let amout = 200;
+		let body = document.querySelector('body');
+		let i = 0;
+		while(i < amout){
+			let drop = document.createElement('i');
+
+			let size = Math.random()*5;
+			let posX = Math.floor(Math.random()* window.innerWidth);
+			let delay = Math.random() * -20;
+            let duration = Math.random() * 5; 
+
+            drop.style.width = 0.2 + size +'px';
+            drop.style.left = posX + 'px';
+            drop.style.animationDelay = delay + 's';
+            drop.style.animationDuration =1 + duration + 's';
+            body.appendChild(drop);
+            i++;    
+		}	
+	}
+	snow();
+    </script> 
+	<p class="word">Merry Christmas</p>
+	<div class="moon"></div>
+	<div class="tree">
+		<div class="mountain"></div>
+		<div class="mountaintwo"></div>
+		<div class="star">
+			<div class="star-in"></div>
+		</div>
+		<!--树叶-->
+		<div class="left-box">
+			<div class="leaf">
+				<div class="edge"></div>
+				<div class="edge right"></div>
+			</div>
+			<div class="leaf">
+				<div class="edge"></div>
+				<div class="edge right"></div>
+			</div>
+			<div class="leaf">
+				<div class="edge"></div>
+				<div class="edge right"></div>
+			</div>
+			<div class="leaf">
+				<div class="edge"></div>
+				<div class="edge right"></div>
+			</div>
+			<div class="leaf">
+				<div class="edge"></div>
+				<div class="edge right"></div>
+			</div>
+		</div>
+		<!--树干-->
+		<div class="trunk"></div>
+		<!--气球-->
+		<div class="ball-box">
+			<div class="ball b1"></div>
+			<div class="ball b2"></div>
+			<div class="ball b3"></div>
+			<div class="ball b4"></div>
+			<div class="ball b5"></div>
+			<div class="ball b6"></div>
+			<div class="ball b7"></div>
+			<div class="ball b8"></div>
+            <div class="ball b9"></div>
+		</div>
+		<!--闪烁-->
+		<div class="sparkle">
+			<span>✦</span>
+			<span>✦</span>
+			<span>✦</span>
+			<span>✦</span>
+			<span>✦</span>
+		</div>
+		<div class="blink">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>
+	<div class="snowman-box">
+		<div class="head"></div>
+    </div>
+			
+</body>
+
+</html>

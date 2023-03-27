@@ -1,0 +1,149 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+    background: #000;
+}
+.lantern-box{
+	width: 120px;
+	height: 90px;
+	background: #d8000f;
+	margin: 50px auto;
+	border-radius: 50%;
+	box-shadow: -5px 5px 50px 4px #fa6c00;
+	/**/
+	transform-origin: 60px -50px;
+	animation: swing 3s infinite ease-in-out;
+}
+@keyframes swing{
+	0%,100%{
+        transform: rotate(15deg);
+	}
+	50%{
+        transform: rotate(5deg);
+	}
+}
+.lantern-box::before{
+	content: '';
+	position: absolute;
+	top: -9px;
+	left: 50%;
+	margin-left: -30px;
+	width: 60px;
+	height: 12px;
+	background: linear-gradient(to right,#dc8f03,#dc8f03,#dc8f03,#dc8f03,#dc8f03);
+    border: 1px solid #dc8f03;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.lantern-box::after{
+	content: '';
+	position: absolute;
+	top: 86px;
+	left: 50%;
+	margin-left:-20px;
+	width: 40px;
+	height: 12px;
+	background: linear-gradient(to right,#dc8f03,#dc8f03,#dc8f03,#dc8f03,#dc8f03);
+    border: 1px solid #dc8f03;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.lantern-top{
+	width: 2px;
+	height: 50px;
+	background: #dc8f03;
+	position: absolute;
+	left: 50%;
+	top: -50px;
+}
+.lantern-circle{
+    width: 100px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid #dc8f03;
+    margin: 12px 8px 8px 10px;
+}
+.lantern-rect{
+	width: 45px;
+	height: 90px;
+	line-height: 90px;
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: #dc8f03;
+	border-radius: 50%;
+	border: 2px solid #dc8f03;
+	margin: -2px 8px 8px 26px;
+}
+.lantern-tassel{
+	width: 1px;
+	height: 20px;
+	background: #ffa500;
+	margin: -10px 0 0 60px;
+	position: relative;
+	animation: swing 3s infinite ease-in-out;
+}
+.lantern-tassel-middle,.lantern-tassel-bottom{
+    position: absolute;
+    width: 8px;
+    left: 50%;
+}
+.lantern-tassel-middle{
+	position: absolute;
+	height: 8px;
+	left: -350%;
+	border-radius: 50%;
+	background: #ffa500;
+	top: 19px;
+}
+.lantern-tassel-bottom{
+	top: 24px;
+}
+.line{
+	display: block;
+	width: 1px;
+	height: 115px;
+	background: #ffa500;
+	position: absolute;
+	left: 0%;
+	transform-origin: top left;
+	transform: scale(0.2);
+}
+.line:nth-child(2){
+	left: 1px;
+	height: 125px;
+}
+.line:nth-child(3){
+	left: 2px;
+	height: 135px;
+}
+
+.line:nth-child(4){
+	left: 3px;
+	height: 145px;
+}
+
+.line:nth-child(5){
+	left: -1px;
+	height: 115px;
+}
+
+.line:nth-child(6){
+	left: -2px;
+	height: 125px;
+}
+.line:nth-child(7){
+	left: -3px;
+	height: 135px;
+}
+
+.line:nth-child(8){
+	left: -4px;
+	height: 145px;
+}
+
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>星级评价</title>
+    <link rel="stylesheet" href="../css/star.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+    <ul class="comment">
+        <li class="light"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        $('li').eq(0).removeClass('light');
+        // 为li元素注册mouseover事件
+        // $('.comment>li').mouseover(function() {
+        //     //  prevAll全部选择
+        //     $(this).addClass('light').prevAll('li').addClass('light');
+        //     // nextAll选择当前元素以及之后同辈元素
+        //     $(this).nextAll('li').removeClass('light');
+        // });
+        // // 为li元素注册mouseout事件 
+        // $('.comment>li').mouseout(function() {
+        //     $('.comment').find('li').removeClass('light')
+        //     $('.comment>li[light=on]').addClass('light').prevAll('li').addClass('light');
+        // }); // 为li元素注册click事件 
+        // $('.comment>li').click(function() {
+
+        //     // attr 非样式设置
+        //     $(this).attr('light', 'on').siblings('li').removeAttr('light');
+        // });
+
+        var flag = false;
+        // 为li元素注册mouseover事件 
+        var num;
+        var Num;
+        $('li').mouseover(function() {
+            //flag = false;
+            num = $(this).index();
+            $.each($('li'), function(index) {
+                if (index <= num)
+                    $(this).css('background-position', '0 -28px');
+            });
+        });
+        // 为li元素注册mouseout事件
+        $('li').mouseout(function() {
+            num = $(this).index();
+            console.log(num);
+            if (!flag) {
+                $('li').css('background-position', '0 0');
+            } else {
+                $.each($('li'), function(index) {
+
+                    if (index > num) {
+                        $(this).css('background-position', '0 0');
+                    }
+                });
+            }
+        });
+        // 为li元素注册click事件 
+        $('li').click(function() {
+            flag = true;
+            num = $(this).index();
+            Num = num;
+            console.log(Num)
+            $.each($('li'), function(index) {
+                if (index <= num) {
+                    $(this).css('background-position', '0 28px');
+                } else {
+                    // 除了'0 0' 还可以 ''
+                    $(this).css('background-position', '0 0px');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

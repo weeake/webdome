@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../javaScript/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="demo" id="demo">
+        <p>{{name}}</p>
+        <P>总价：{{totalPrice}}</P>
+        <P>单价：{{price}}</P>
+        <P>数量：{{num}}</P>
+
+        <button @click="num==0 ? 0 : num--">减少数量</button>
+        <button @click="num++">增加数量</button>
+        <button @click="print">打印总价格</button>
+
+
+        <p>counter:{{counter}}</p>
+        <!--@click  v-on.click一样 -->
+        <button @click="count++">{{count}}</button>
+        <button v-on:click="count++">{{count}}</button>
+
+        <!-- 双向绑定 -->
+        <p>{{message}}</p>
+        <input type="text" v-model="message">
+        <!-- 单向绑定 -->
+        <p>{{messages}}</p>
+        <input type="text" v-bind:value="messages">
+        <!-- v-if判断绑定 -->
+        <div v-if="show">
+            v-if test!
+        </div>
+        <!-- 内联式 -->
+        <button v-on:click="show = !show">111</button>
+
+        <!-- 循环绑定 -->
+        <ul>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ul>
+
+        <!-- 组件 -->
+        <ol>
+            <!-- 创建一个todo-item组件实例 -->
+            <todo-item></todo-item>
+            <todo-item></todo-item>
+            <todo-item></todo-item>
+
+        </ol>
+    </div>
+
+
+    <script>
+        const TodoItem = {
+                template: `<li>This is a todo</li>`
+            }
+            // Vue2
+        var vue = new Vue({
+            el: "#demo",
+            data: {
+                counter: 1,
+                count: 0,
+                price: 20,
+                num: 0,
+                name: "xiaozhang",
+                message: 'abc',
+                messages: 'abcd',
+                show: true,
+                todos: [{
+                    text: '起床'
+                }, {
+                    text: '睡觉'
+                }, {
+                    text: '吃饭'
+                }, ]
+            },
+            mounted() {
+                setInterval(() => {
+                    // 直接在数据层面++
+                    this.counter++;
+                }, 1000)
+            },
+            computed: {
+                totalPrice() {
+                    {
+                        console.log('totalRrice计算属性执行了');
+                        return this.price * this.num;
+                    }
+                }
+            },
+            // 要为组件添加方法，我们需要用到 methods 选项。它应该是一个包含所有方法的对象
+
+            methods: {
+                print() {
+                    console.log('totalPrice结果' + this.totalPrice);
+
+                }
+            },
+            //加载组件
+            components: {
+                TodoItem
+            },
+
+        })
+
+
+        // Vue3
+        const app = {
+
+
+        }
+    </script>
+</body>
+
+</html>

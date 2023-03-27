@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    transition: all 1.5s;
+    font-size: 14px;
+    /* 块级元素行文本的间距 */
+    line-height: 23px;
+    /* 设置文本的粗细 */
+    font-weight: 400;
+    background: #ffffff;
+    color: #000;
+}
+
+
+/* 导航栏*/
+
+.container-fluid {
+    background-color: #ffffff;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(83, 83, 83, 0.05);
+}
+
+.navbar-brand img {
+    width: 10vh;
+    height: auto;
+    color: rgb(51, 194, 7);
+}
+
+.navbar-brand {
+    font-size: 1.2rem;
+    position: relative;
+    left: 10%;
+    color: rgb(51, 194, 7);
+}
+
+.navbar-brand:hover {
+    color: rgb(51, 194, 7);
+}
+
+.navbar-brand span {
+    color: rgb(29, 29, 28);
+}
+
+.navbar-toggler .navbar-toggler-icon {
+    width: 1rem;
+}
+
+.navbar-collapse .navbar-nav {
+    background-color: #ffffff;
+    position: absolute;
+    right: 5%;
+}
+
+.navbar-nav li a {
+    color: #000;
+    font-size: 1.2rem;
+    padding: 1rem;
+    /* 字体的粗细程度 */
+    font-weight: 600;
+}
+
+.navbar-nav li a:hover {
+    transition: all 0.9s;
+    color: rgb(51, 194, 7);
+}
+
+.navbar-main .container {
+    min-height: calc(100vh - 20rem);
+    max-width: 65%;
+    align-content: center;
+}
+
+
+/* 主页面 */
+
+.container .main-left {
+    position: relative;
+    left: 25%;
+    padding-top: 15%;
+    text-align: center;
+    animation: moveup 1.5s ease 1;
+    overflow: hidden;
+}
+
+@keyframes moveup {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.main-left h1 {
+    color: #000;
+    margin-bottom: 1.0rem;
+}
+
+.container .main-left p {
+    font-size: 0.9rem;
+    color: #111111;
+}
+
+.container .main-right {
+    position: relative;
+    left: 40%;
+    color: #000;
+    padding-top: 3.5rem;
+    text-align: center;
+    animation: movedown 1.5s ease 1;
+    overflow: hidden;
+}
+
+@keyframes movedown {
+    0% {
+        opacity: 0;
+        transform: translateY(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.navbar-main .container .main-left .menu {
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: rgb(39, 158, 2);
+}
+
+@media (max-width:960px) {
+    .container .main-left {
+        padding-top: 5%;
+        left: 35%;
+        font-size: 1rem;
+        text-align: center;
+        animation: none;
+    }
+    .container .main-right {
+        left: 35%;
+        padding-top: 0;
+        animation: none;
+    }
+}
+
+
+/* 菜单 */
+
+.container .foodcard-top {
+    text-align: center;
+    color: rgb(51, 194, 7);
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.foodcard-top p {
+    padding: 2%;
+    font-size: 1.1rem;
+}
+
+.foodcard-top h3,
+a {
+    color: #000;
+}
+
+.menu-box li a {
+    font-size: 1.0rem;
+}
+
+.menu-box li {
+    float: left;
+    padding: 3%;
+    text-align: center;
+}

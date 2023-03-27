@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="../css/FirecrackersFireworks.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="firecrackers-box">
+		<div class="firecrackers-top"></div>
+	    <div class="firecrackers">
+	    	<div class="firecrackers-grid">
+	    		<span >福</span>
+	    	</div>
+	    </div>
+	    <div class="firecrackers-bottom"></div>
+	</div>
+
+	<div class="fire-box">
+		<div class="fire">
+			<div class="flame flame-1"></div>
+		    <div class="flame flame-2"></div>
+		    <div class="flame flame-3"></div>
+		    <div class="flame flame-4"></div>
+	    </div>
+	</div>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var RENDERER = {
+			LEAF_INTERVAL_RANGE:{min: 100,max: 200},
+			FIRWORK_INTERVAL_RANGE:{min: 20,max: 200},
+			SKY_COLOR:'hsla(210，60%,%luminance%,0.2)',
+			STAR_COUNT:100,
+
+			init:function(){
+				this.setParameters();
+				this.reconstructMethod();
+				this.createTwigs();
+				this.createStars();
+				this.render();
+			},
+			setParameters:function(){
+				this.$container = $('#jsi-fireworks-container')
+			}
+		}
+	</script>
+</body>
+</html>

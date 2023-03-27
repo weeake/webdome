@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <title>Ajax</title>
+</head>
+<style>
+    * {
+        text-align: center;
+    }
+</style>
+
+<body>
+    <table border="" class="table">
+        <thead>
+            <tr>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script type="text/javascript">
+        $.get('ajax.json', function(data) {
+
+        });
+
+        $.ajax({
+            type: 'get',
+            url: 'ajax.json',
+            data: 'json',
+            success: function(data) {
+                //console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    var a = $('table tbody').append('<tr><td>' + data[i].name + '</td><td>' + data[i].age + '</td><td><a href="#" id="a1">修改</a><span> </span><a href="#" id="a2">删除</a></td> </tr>')
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+<!-- <ul id="ul1"></ul>
+    <script type="text/javascript">
+        // get() 可以访问本地文件， post() 只能访问服务器
+        $.get('ajax.json', function(data) {
+            console.log(data)
+        });
+        $.ajax({
+            type: 'get',
+            url: 'ajax.json',
+            data: 'json',
+            success: function(data) {
+                //console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    $('#ul1').append('<li>' + data[i].name + '</li>')
+                }
+            }
+
+            // error: function() {
+            //     console.log('cuowu');
+            // }
+        })
+    </script> -->

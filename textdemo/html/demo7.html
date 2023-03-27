@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 插件</title>
+    <link rel="stylesheet" href="../css/validationEngine.jquery.css" type="text/css" />
+    <link rel="stylesheet" href="../css/template.css" type="text/css" />
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <script src="../javaScript/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../javaScript/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        jQuery(document).ready(function() {
+            // binds form submission and fields to the validation engine
+            jQuery("#formID").validationEngine();
+        });
+        /**
+         *
+         * @param {jqObject} the field where the validation applies
+         * @param {Array[String]} validation rules for this field
+         * @param {int} rule index
+         * @param {Map} form options
+         * @return an error string if validation failed
+         */
+        function checkHELLO(field, rules, i, options) {
+            if (field.val() != "HELLO") {
+                // this allows to use i18 for the error msgs
+                return options.allrules.validate2fields.alertText;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <form id="formID" class="formular" method="post">
+        <fieldset>
+            <legend>
+                MinSize
+            </legend>
+            <label>
+                最小字段数大小
+            <br/>
+            <input value="" class="validate[required,minSize[8]] text-input" type="text" name="minsize" id="minsize" />
+            <br/>
+            验证[必填，最小字段大小[8]]
+        </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                MaxSize
+            </legend>
+            <label>
+                最大字段数大小
+            <br/>
+            <input value="0123456789" class="validate[optional,maxSize[6]] text-input" type="text" name="maxsize" id="maxsize" />
+            <br/>
+            验证[必填，最大字段大小[6]]<br/>
+            请注意，该字段是可选的 - 如果它没有值，它不会失败
+        </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Min
+            </legend>
+            <label>
+            整数最小值
+            <br/>
+            <input value="-7" class="validate[required,custom[integer],min[0]] text-input" type="text" name="min" id="min" />
+            <br/>
+            验证[必需，自定义[整数]，最小值[0]]
+        </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>
+                Max
+            </legend>
+            <label>
+                整数最大值
+            <br/>
+            <input value="55" class="validate[required,custom[integer],max[100]] text-input" type="text" name="max" id="max" />
+            <br/>
+            验证[必需，自定义[整数]，最大值[100]]
+        </label>
+        </fieldset>
+    </form>
+
+</body>
+
+</html>

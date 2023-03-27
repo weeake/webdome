@@ -1,0 +1,53 @@
+*{
+	padding: 0;
+	margin: 0;
+
+}
+
+.cookie-container{
+	background: linear-gradient(260deg,#9b6c50 20%,#4f2626 100%);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	display: flex;
+	width: 20rem;
+	height: 7rem;
+	border-radius: 1.2rem;
+	padding: 1rem;
+    font-family:"Times New Roman", Times, serif ;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.cookie{
+	width: 20%;
+	height: 50%;
+	/*缩放*/
+    transform: scale(0.9);
+	/*padding-right: 2rem;*/
+}
+.text{
+	width: 75%;
+}
+.cookie-title{
+	font-size: 1.2rem;
+	/*字体的粗细 更细*/
+	font-weight: lighter;
+}
+.cookie-subtitle{
+	padding: 0.5rem 0rem;
+	font-size: 0.7rem;
+	/*字体的粗细 加粗*/
+	font-weight: bold;
+}
+button{
+	border-style: none;
+	padding: 0.5rem 1rem;
+	color: #4f2326;
+	font-family:"Times New Roman", Times, serif ;
+	font-size: 0.7rem;
+	font-weight: bold;
+	border-radius: 0.3rem;
+}

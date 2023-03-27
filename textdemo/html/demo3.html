@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script>
+    <title>绑定事件与取消绑定事件</title>
+</head>
+<style>
+    .out {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+    }
+    
+    .inner {
+        width: 50px;
+        height: 50px;
+        background-color: red;
+    }
+</style>
+
+<body>
+    <div class="zout">
+        <div class="out">
+            外部
+            <div class="inner">内部</div>
+        </div>
+    </div>
+
+    <input type="text" class="input" value="123">
+    <div class="divbtn">
+        <button class="" id="bt1">取消所有绑定</button>
+        <button class="" id="bt2"> 取消绑定mouserover</button>
+        <button class="" id="bt3">测试事件坐标</button>
+
+    </div>
+</body>
+<script type="text/javascript">
+    $('.out').click(function() {
+        alert('123');
+    });
+
+
+    $('.input').on({
+        'click': function() {
+            alert('点击');
+        },
+        'change': function() {
+            alert('内容改变');
+        }
+    });
+    // 解绑事件    ('事件'，'**')解绑委托
+    $('input').off('click');
+    $('.inner').click(function() {
+        alert('456');
+    });
+
+
+    $('.out').mouseover(function() {
+        console.log(1)
+    });
+    $('.out').mouseout(function() {
+        console.log(2)
+    });
+    // 离开不影响子元素
+    $('.out').mouseleave(function() {
+        console.log(3)
+    });
+
+    $('.out').on({
+        'mouseeter': function() {
+            console.log(1)
+        },
+        'mouseleave': function() {
+            console.log(2)
+        }
+    });
+
+    $('.out').hover(function() {
+            console.log(4);
+        },
+        function() {
+            console.log(5);
+        });
+
+
+    $('.inner').click(function(event) {
+        console.log(1);
+        // 阻止冒泡事件
+        event.stopPropagation();
+        // 阻止默认行为
+        event.preventDefault()
+        return false;
+    });
+    $('.out').click(function() {
+        console.log(2);
+
+    });
+    $('.zout').click(function() {
+        console.log(3);
+    });
+
+
+    $('#bt3').on('click', function(e) {
+        console.log(e.pageX)
+    })
+</script>
+
+</html>
