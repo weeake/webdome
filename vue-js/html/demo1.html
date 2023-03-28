@@ -49,6 +49,9 @@
 
         <!-- 组件 -->
         <ol>
+            <todo-item v-for="TodoItem in todos" v-bind:todo="TodoItem"></todo-item>
+        </ol>
+        <ol>
             <!-- 创建一个todo-item组件实例 -->
             <todo-item></todo-item>
             <todo-item></todo-item>
@@ -60,7 +63,11 @@
 
     <script>
         const TodoItem = {
-                template: `<li>This is a todo</li>`
+                props: ['todo', 'todo1'],
+                // 定义组件模板   决定组件最终样式
+                //1.组件中template属性指定
+                //2.直接在网页的根元素中指定  
+                template: "<li>This is a todo</li>"
             }
             // Vue2
         var vue = new Vue({
@@ -107,16 +114,9 @@
             //加载组件
             components: {
                 TodoItem
-            },
+            }
 
         })
-
-
-        // Vue3
-        const app = {
-
-
-        }
     </script>
 </body>
 
