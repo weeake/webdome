@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义函数属性</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>n放大的值:{{n}}</h2>
+        <h2>n放大十倍的值 <span v-big="n"></span></h2>
+        <button @click="n++">点击n+1</button>
+        <input type="text" v-fbind:value="n">
+    </div>
+    <script src="../javaScript/vue.js " type="text/javascript "></script>
+    <script type="text/javascript">
+        var vue = new Vue({
+            el: "#app",
+            data: {
+                n: 1
+            },
+
+            directives: {
+                //1.指令与元素成功邦迪时（一上来）
+                //2.指令所在模板被重新解析
+                //指令函数
+                big(element, binding) {
+                    element.innerText = binding.value * 10
+
+                },
+                //指令对象
+                fbind: {
+                    bind(element, binding) {
+                        element.value = binding.value
+
+                    },
+                    //指令所在元素被插入页面时
+                    inserted(element, binding) {
+                        element.focus()
+                    },
+                    //指令所在模板被重新解析
+                    updata(element, binding) {
+                        element.value = binding.value
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

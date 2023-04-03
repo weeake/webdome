@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../javaScript/vue.js"></script>
     <title>Document</title>
 </head>
@@ -20,7 +19,7 @@
         <button @click="num==0 ? 0 : num--">减少数量</button>
         <button @click="num++">增加数量</button>
         <button @click="print">打印总价格</button>
-
+        <p>显示时间{{}}</p>
 
         <p>counter:{{counter}}</p>
         <!--@click  v-on.click一样 -->
@@ -63,13 +62,16 @@
 
     <script>
         const TodoItem = {
-                props: ['todo', 'todo1'],
-                // 定义组件模板   决定组件最终样式
-                //1.组件中template属性指定
-                //2.直接在网页的根元素中指定  
-                template: "<li>This is a todo</li>"
-            }
-            // Vue2
+            props: ['todo', 'todo1'],
+            // 定义组件模板   决定组件最终样式
+            //1.组件中template属性指定
+            //2.直接在网页的根元素中指定  
+            template: "<li>This is a todo</li>"
+        }
+        var timeNow = new Date()
+        console.log(timeNow);
+
+        // Vue2
         var vue = new Vue({
             el: "#demo",
             data: {
@@ -87,7 +89,8 @@
                     text: '睡觉'
                 }, {
                     text: '吃饭'
-                }, ]
+                }, ],
+                tiem: ''
             },
             mounted() {
                 setInterval(() => {

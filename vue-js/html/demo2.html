@@ -5,12 +5,159 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
     <title>列表渲染 模糊搜索</title>
 </head>
 
 <body>
+    <div id="app">
+        <button @click="add">添加学生</button>
+        <button @click="del">删除学生</button>
+        <br>
+        <input type="text" placeholder="请输入名字" v-model="keyWord">
+
+        <button @click="sortType = 2">年龄升序排序</button>
+        <button @click="sortType = 1">年龄降序排序</button>
+        <button @click="sortType = 0">原顺序</button>
+        <br>
+        <button @click="">更新信息</button>
+
+        <table border="1" width="50%" style="border-collapse: collapse;">
+            <tr align="center">
+                <td>班级</td>
+                <td>姓名</td>
+                <td>性别</td>
+                <td>年龄</td>
+            </tr>
+            <tr align="center" v-for="item in students2" :key="item.grade">
+                <td>{{item.grade}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.sex}}</td>
+                <td>{{item.age}}</td>
+                <td><input type="text"></td>
+
+            </tr>
+        </table>
+    </div>
+    <script src="../javaScript/vue.js"></script>
+
+    <script type="text/javascript">
+        var numGrade = 0;
+        var vue = new Vue({
+            el: '#app',
+            data: {
+                keyWord: '',
+                // 原顺序 0   1降序    2升序
+                sortType: 0,
+                students: [{
+                    grade: '1',
+                    name: "张三",
+                    sex: '男',
+                    age: '18'
+                }, {
+                    grade: '2',
+                    name: "李四",
+                    sex: '女',
+                    age: '15'
+                }, {
+                    grade: '3',
+                    name: "王五",
+                    sex: '男',
+                    age: '21'
+                }, {
+                    grade: '4',
+                    name: "张老三",
+                    sex: '男',
+                    age: '26'
+                }, {
+                    grade: '5',
+                    name: "王老五",
+                    sex: '女',
+                    age: '11'
+                }],
+                // students2: []
+            },
+            // 监视属性   需要添加上方 data中的 students2：[]  和下方 add()中 this.students2.push(student) del()this.students2.pop()
+            // watch: {
+            //     keyWord: {
+            //         //  先执行handler()获取数组内容显示
+            //         // 你可以传入回调数组，它们会被逐一调用
+            //         immediate: true,
+            //         // 该回调将会在侦听开始之后被立即调用
+            //         handler(val) {
+            //             this.students2 = this.students.filter((item) => {
+            //                 //模糊匹配名字
+            //                 return item.name.indexOf(val) !== -1
+            //             })
+
+            //             //     if (this.sortType) {
+            //             //         console.log(111);
+
+            //             //         // sort()排序方法      return a-b升序 或者  b-a降序 
+            //             //         this.students2.sort((a, b) => {
+            //             //             // 三元表达式
+
+            //             //             return this.sortType === 1 ? b.age - a.age : a.age - b.age
+            //             //         })
+            //             //     }
+            //             //     return this.students2
+            //             // }
+            //         }
+            //     },
+            // 计算属性   需要删除上方 data 中的 students2 :[]  下方 add()中 this.students2.push(student) del()this.students2.pop()  否则冲突无法显示内容
+            computed: {
+                students2() {
+                    const arr = this.students.filter((item) => {
+                        //模糊匹配名字
+                        return item.name.indexOf(this.keyWord) !== -1
+                    })
+                    if (this.sortType) {
+                        // sort()排序方法      return a-b升序 或者  b-a降序 
+                        arr.sort((a, b) => {
+                            // 三元表达式
+
+                            return this.sortType === 1 ? b.age - a.age : a.age - b.age
+                        })
+                    }
+                    return arr
+                }
+            },
+            // 函数方法
+
+            methods: {
+                // 添加学生对象
+                add() {
+                    var student = {
+                        grade: '6',
+                        name: "赵六",
+                        sex: '女',
+                        age: '23'
+                    }
+
+                    // 判断数组对象存在多少个
+                    var num = vue.students.length
+                    num = num + 1
+                    student.grade = String(num)
+
+                    this.students.push(student)
+                        // this.students2.push(student)
+                },
+                // 删除学生对象
+                del() {
+                    this.students.pop()
+                        // this.students2.pop()
+                },
+                upData() {
+                    // this.students[0].name = '马飞'
+                    // this.students[0].age = '18'
+                    // this.students[0].sex = '女'
+
+
+                }
+
+
+            }
+        })
+    </script>
 
 </body>
 
